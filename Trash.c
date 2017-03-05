@@ -360,7 +360,6 @@ void  calc_record()
 
 
 	}
-	getchar();
 
 }	
 
@@ -389,9 +388,10 @@ void  save_record()
 		do
 		{
 			pshow=pCheck;
-			fprintf(fp,"|%10s|%10s|%d|%8d|%8d|%8d|%8d|\n",
-			        pshow->ID,pshow->name,pshow->gender,pshow->chinese,pshow->math,
-			        pshow->english,pshow->computer);
+			fprintf(fp,"|%10d",pshow->ID);
+			fprintf(fp,"|%10s",pshow->name);
+			fprintf(fp,"|%10s",(pshow->gender==1)?("Male"):("Female"));
+			fprintf(fp,"|%8d|%8d|%8d|%8d|\n",pshow->chinese,pshow->math,pshow->english,pshow->computer);
 			fprintf(fp,"+----------+----------+----------+--------+--------+--------+--------+\n");
 			pCheck=pCheck->nodeNext;
 		}
